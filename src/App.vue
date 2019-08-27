@@ -8,15 +8,13 @@
 <script>
 import Header from "./components/Header.vue";
 import Letters from "./components/Letters.vue";
-import Letter from "./components/Letter.vue";
 import data from "./json/data.json";
 
 export default {
   name: "app",
   components: {
     Header,
-    Letters,
-    Letter
+    Letters
   },
   data() {
     return {
@@ -37,10 +35,13 @@ export default {
   margin-bottom: 60px;
 }
 
-
 @media (max-width: 550px) {
   .block {
     grid-template-columns: 1fr;
+  }
+  #app {
+    margin-top: 25px;
+    margin-bottom: 25px;
   }
 }
 </style>
