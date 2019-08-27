@@ -1,0 +1,56 @@
+<template>
+  <div class="grid">
+    <div class>
+      <h1>
+        <span class="a">A</span>
+        <span class="b">B</span>
+        <span class="c">C</span>
+      </h1>
+      <p>
+        App that helps you learn your letters by
+        <span>Paz</span> and her
+        <span>dad</span>
+      </p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header"
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.a {
+  color: rgb(22, 22, 121);
+  font-size: 8rem;
+}
+
+.b {
+  color: red;
+  font-size: 8rem;
+}
+
+.c {
+  color: rgb(18, 197, 63);
+  font-size: 8rem;
+}
+.container {
+  margin: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.item {
+  align-items: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.a:hover {
+  transform: scale(1.25);
+}
+</style>

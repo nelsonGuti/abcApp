@@ -1,0 +1,168 @@
+{
+  "abc": [
+    {
+      "id": 1,
+      "name": "a",
+      "words": ["ant", "apple", "art"],
+      "palabras": ["arbol", "arca", "ala"],
+      "img": "https://source.unsplash.com/150x150/?apple",
+      "vocal": true
+    },
+    {
+      "id": 2,
+      "name": "b",
+      "words": ["bee", "ball", "bubble"],
+      "palabras": ["bola", "beso", "bote"],
+      "img": "https://source.unsplash.com/150x150/?ball"
+    },
+    {
+      "id": 3,
+      "name": "c",
+      "words": ["cat", "cow", "coconut"],
+      "palabras": ["arbol", "arca", "ala"],
+      "img": "https://source.unsplash.com/150x150/?cow"
+    },
+    {
+      "id": 4,
+      "name": "d",
+      "words": ["dog", "dice", "duck"],
+      "img": "https://source.unsplash.com/150x150/?dog"
+    },
+    {
+      "id": 5,
+      "name": "e",
+      "words": ["elephant", "egg", "echo"],
+      "img": "https://source.unsplash.com/150x150/?elephant",
+      "vocal": true
+    },
+    {
+      "id": 6,
+      "name": "f",
+      "words": ["fish", "frog", "fog"],
+      "img": "https://source.unsplash.com/150x150/?frog"
+    },
+    {
+      "id": 7,
+      "name": "g",
+      "words": ["goat", "grass", "girl"],
+      "img": "https://source.unsplash.com/150x150/?goat"
+    },
+    {
+      "id": 8,
+      "name": "h",
+      "words": ["hat", "help", "hit"],
+      "img": "https://source.unsplash.com/150x150/?hat"
+    },
+    {
+      "id": 9,
+      "name": "i",
+      "words": ["igloo", "ink", "inside"],
+      "img": "https://source.unsplash.com/150x150/?igloo",
+      "vocal": true
+    },
+    {
+      "id": 10,
+      "name": "j",
+      "words": ["jar", "jelly", "jam"],
+      "img": "https://source.unsplash.com/150x150/?jelly"
+    },
+    {
+      "id": 11,
+      "name": "k",
+      "words": ["kangaroo", "koala", "kiwi"],
+      "img": "https://source.unsplash.com/150x150/?koala"
+    },
+    {
+      "id": 12,
+      "name": "l",
+      "words": ["lion", "leg", "long"],
+      "img": "https://source.unsplash.com/150x150/?lion"
+    },
+    {
+      "id": 13,
+      "name": "m",
+      "words": ["monkey", "man", "moon"],
+      "img": "https://source.unsplash.com/150x150/?moon"
+    },
+    {
+      "id": 14,
+      "name": "n",
+      "words": ["nest", "net", "noise"],
+      "img": "https://source.unsplash.com/150x150/?nest"
+    },
+    {
+      "id": 15,
+      "name": "o",
+      "words": ["out", "octupus", "oil"],
+      "img": "https://source.unsplash.com/150x150/?octupus",
+      "vocal": true
+    },
+    {
+      "id": 16,
+      "name": "p",
+      "words": ["parrot", "potato", "pig"],
+      "img": "https://source.unsplash.com/150x150/?pig"
+    },
+    {
+      "id": 17,
+      "name": "q",
+      "words": ["quilt", "quiet", "quack"],
+      "img": "https://source.unsplash.com/150x150/?quilt"
+    },
+    {
+      "id": 18,
+      "name": "r",
+      "words": ["rat", "rain", "rap"],
+      "img": "https://source.unsplash.com/150x150/?rat"
+    },
+    {
+      "id": 19,
+      "name": "s",
+      "words": ["sun", "soil", "seed"],
+      "img": "https://source.unsplash.com/150x150/?sun"
+    },
+    {
+      "id": 20,
+      "name": "t",
+      "words": ["tent", "tiger", "tree"],
+      "img": "https://source.unsplash.com/150x150/?tree"
+    },
+    {
+      "id": 21,
+      "name": "u",
+      "words": ["umbrella", "unicorn", "ukelele"],
+      "img": "https://source.unsplash.com/150x150/?unicorn",
+      "vocal": true
+    },
+    {
+      "id": 22,
+      "name": "v",
+      "words": ["video", "voice", "violin"],
+      "img": "https://source.unsplash.com/150x150/?violin"
+    },
+    {
+      "id": 23,
+      "name": "w",
+      "words": ["water", "watermelon", "wet"],
+      "img": "https://source.unsplash.com/150x150/?water"
+    },
+    {
+      "id": 24,
+      "name": "x",
+      "words": ["x-ray", "xylophone", "x-games"],
+      "img": "https://source.unsplash.com/150x150/?xylophone"
+    },
+    {
+      "id": 25,
+      "name": "y",
+      "words": ["yellow", "yolk", "you"],
+      "img": "https://source.unsplash.com/150x150/?yellow"
+    },
+    {
+      "id": 26,
+      "name": "z",
+      "words": ["zoo", "zebra", "zuchini"],
+      "img": "https://source.unsplash.com/150x150/?zebra"
+    }
+  ]
+}
