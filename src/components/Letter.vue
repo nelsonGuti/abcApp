@@ -4,9 +4,12 @@
       <div class="item">
         <h1>{{letter.name}}</h1>
       </div>
-      <div class="image">
-        <img :src="letter.img" alt>
+      <div v-if="image" class="image">
+        <img :src="image" alt ref="image1" />
       </div>
+      <div class="item" v-else-if="loading">...Loading</div>
+      <div class="item" v-else-if="error">couldnt find the picture</div>
+
       <div class="item">
         <p v-for="(word,index) in letter.words" :key="index">{{word}}</p>
       </div>
@@ -15,12 +18,33 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Letter",
   props: {
     letter: {
       type: Object
     }
+  },
+  data: function() {
+    return {
+      image: null,
+      loading: true,
+      error: false
+    };
+  },
+  mounted() {
+    axios
+      .get(this.letter.img)
+      .then(response => {
+        this.image = response.config.url;
+        // console.log(response.config.url);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   }
 };
 </script>

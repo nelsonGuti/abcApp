@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Letters :letters="letters"></Letters>
+    <Letters class="lettersMain" :letters="letters"></Letters>
   </div>
 </template>
 
@@ -35,13 +35,17 @@ export default {
   margin-bottom: 60px;
 }
 
+.lettersMain {
+  margin: 0 15vw;
+}
+
 @media (max-width: 550px) {
-  .block {
-    grid-template-columns: 1fr;
-  }
   #app {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+  .lettersMain {
+    margin: 0 2.5vw;
   }
 }
 </style>
