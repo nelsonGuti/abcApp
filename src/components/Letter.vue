@@ -4,9 +4,24 @@
       <div class="item">
         <h1>{{letter.name}}</h1>
       </div>
-      <div class="image">
-        <img :src="letter.img" alt>
+      <div v-if="image" class="image">
+        <img :src="image" alt ref="image1" />
       </div>
+      <div class="item" v-else-if="loading">
+        <!-- <div class="lds-roller"> -->
+        <!-- <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        <div></div>-->
+        <div class="lds-hourglass"></div>
+        <!-- </div> -->
+      </div>
+      <div class="item" v-else-if="error">Could not find the picture</div>
+
       <div class="item">
         <p v-for="(word,index) in letter.words" :key="index">{{word}}</p>
       </div>
@@ -15,12 +30,33 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Letter",
   props: {
     letter: {
       type: Object
     }
+  },
+  data: function() {
+    return {
+      image: null,
+      loading: true,
+      error: false
+    };
+  },
+  mounted() {
+    axios
+      .get(this.letter.img)
+      .then(response => {
+        this.image = response.config.url;
+        // console.log(response.config.url);
+      })
+      .catch(error => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   }
 };
 </script>
@@ -40,6 +76,7 @@ h1:hover {
   /*border: 1px solid #2c3e50;*/
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   row-gap: 50px;
+  min-width: 300px;
 }
 .item {
   display: grid;
@@ -60,6 +97,44 @@ h1:hover {
 
 .image img {
   border-radius: 50%;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid hsl(24, 67%, 31%);
+  border-color: hsl(24, 67%, 31%) transparent hsl(24, 67%, 31%) transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .letter {
+    min-width: 200px;
+  }
 }
 </style>
 

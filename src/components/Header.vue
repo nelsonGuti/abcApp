@@ -1,15 +1,14 @@
 <template>
-  <div class="grid">
-    <div class>
+  <div>
+    <div class="header">
       <h1>
         <span class="a">A</span>
         <span class="b">B</span>
         <span class="c">C</span>
       </h1>
-      <p>
+      <p class="subheader">
         App that helps you learn your letters by
-        <span>Paz</span> and her
-        <span>dad</span>
+        Paz and her Dad
       </p>
     </div>
   </div>
@@ -37,20 +36,8 @@ export default {
   color: rgb(18, 197, 63);
   font-size: 8rem;
 }
-.container {
-  margin: 25px;
-}
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-.item {
-  align-items: center;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.a:hover {
-  transform: scale(1.25);
+.header {
+  padding: 0 2.5vw;
 }
 </style>
