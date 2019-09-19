@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="letter">
-      <div class="item">
+      <div class="item" :class="{ toggleCase: toggleCase }" @click="toggleCase = !toggleCase">
         <h1>{{letter.name}}</h1>
       </div>
 
@@ -37,7 +37,8 @@ export default {
     return {
       image: null,
       loading: true,
-      errored: false
+      errored: false,
+      toggleCase: false
     };
   },
   computed: {
@@ -67,8 +68,8 @@ export default {
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
 }
@@ -76,9 +77,14 @@ export default {
 h1 {
   font-size: 4rem;
 }
-h1:hover {
+/* h1:hover {
   text-transform: uppercase;
   color: tomato;
+} */
+
+.toggleCase {
+  color: rgb(185, 28, 125);
+  text-transform: uppercase;
 }
 .letter {
   display: grid;
@@ -110,11 +116,6 @@ h1:hover {
   grid-area: 1 / 1;
 }
 
-.words p:hover {
-  color: rgb(172, 20, 108);
-  text-transform: uppercase;
-}
-
 .lds-hourglass {
   display: inline-block;
   position: relative;
@@ -129,8 +130,8 @@ h1:hover {
   height: 0;
   margin: 6px;
   box-sizing: border-box;
-  border: 26px solid hsl(138, 67%, 31%);
-  border-color: hsl(138, 67%, 31%) transparent hsl(138, 67%, 31%) transparent;
+  border: 26px solid rgb(185, 28, 125);
+  border-color: rgb(185, 28, 125) transparent rgb(185, 28, 125) transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
@@ -146,11 +147,5 @@ h1:hover {
     transform: rotate(1800deg);
   }
 }
-
-/* @media (max-width: 600px) {
-  .letter {
-    min-width: 200px;
-  }
-} */
 </style>
 

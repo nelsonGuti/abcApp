@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>
     <Letters class="lettersMain" :letters="letters"></Letters>
+    <p class="footer">Made with ❤️ by Paz and Nelson</p>
   </div>
 </template>
 
@@ -43,13 +44,17 @@ body {
   margin: 0 15vw;
 }
 
+.footer {
+  margin: 60px;
+}
+
 @media (max-width: 550px) {
   #app {
     margin-top: 25px;
     margin-bottom: 25px;
   }
   .lettersMain {
-    margin: 0 2.5vw;
+    margin: 0 5vw;
   }
 }
 </style>
