@@ -6,10 +6,7 @@
         <span class="b">B</span>
         <span class="c">C</span>
       </h1>
-      <p class="subheader">
-        App that helps you learn your letters by
-        Paz and her Dad
-      </p>
+      <p class="subheader">App that helps you learn your letters 😉</p>
     </div>
   </div>
 </template>
