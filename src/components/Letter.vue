@@ -4,23 +4,18 @@
       <div class="item">
         <h1>{{letter.name}}</h1>
       </div>
-      <div v-if="image" class="image">
-        <img :src="image" alt ref="image1" />
+
+      <div v-if="imageLoaded" class="item image">
+        <div class="placeholder"></div>
+        <transition appear name="slide-fade">
+          <img class="imageLoaded" :src="imageLoaded" alt ref="image1" />
+        </transition>
       </div>
-      <div class="item" v-else-if="loading">
-        <!-- <div class="lds-roller"> -->
-        <!-- <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        <div></div>-->
+
+      <div class="item loading" v-else-if="loading || !imageLoaded">
         <div class="lds-hourglass"></div>
-        <!-- </div> -->
       </div>
-      <div class="item" v-else-if="error">Could not find the picture</div>
+      <div class="item" v-else-if="errored">Could not find the picture</div>
 
       <div class="item">
         <p v-for="(word,index) in letter.words" :key="index">{{word}}</p>
@@ -42,15 +37,19 @@ export default {
     return {
       image: null,
       loading: true,
-      error: false
+      errored: false
     };
+  },
+  computed: {
+    imageLoaded: function() {
+      return this.image;
+    }
   },
   mounted() {
     axios
       .get(this.letter.img)
       .then(response => {
         this.image = response.config.url;
-        // console.log(response.config.url);
       })
       .catch(error => {
         console.log(error);
@@ -62,6 +61,18 @@ export default {
 </script>
 
 <style scoped>
+.slide-fade-enter-active {
+  transition: all 1.5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -73,10 +84,8 @@ h1:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 35vh;
-  /*border: 1px solid #2c3e50;*/
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   row-gap: 50px;
-  min-width: 300px;
 }
 .item {
   display: grid;
@@ -84,19 +93,26 @@ h1:hover {
   align-content: center;
 }
 
+.item.loading {
+  min-width: 150px;
+}
+
+.imageLoaded {
+  border-radius: 50%;
+  grid-area: 1 / 1;
+}
+
+.placeholder {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  grid-area: 1 / 1;
+}
+
 .words p:hover {
   color: rgb(172, 20, 108);
   text-transform: uppercase;
-}
-
-.image {
-  display: grid;
-  align-self: center;
-  justify-self: center;
-}
-
-.image img {
-  border-radius: 50%;
 }
 
 .lds-hourglass {
@@ -113,8 +129,8 @@ h1:hover {
   height: 0;
   margin: 6px;
   box-sizing: border-box;
-  border: 26px solid hsl(24, 67%, 31%);
-  border-color: hsl(24, 67%, 31%) transparent hsl(24, 67%, 31%) transparent;
+  border: 26px solid hsl(138, 67%, 31%);
+  border-color: hsl(138, 67%, 31%) transparent hsl(138, 67%, 31%) transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
@@ -131,10 +147,10 @@ h1:hover {
   }
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .letter {
     min-width: 200px;
   }
-}
+} */
 </style>
 
