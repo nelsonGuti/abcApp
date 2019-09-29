@@ -13,12 +13,16 @@
       </div>
 
       <div class="item loading" v-else-if="loading || !imageLoaded">
-        <div class="lds-hourglass"></div>
+        <div class="loader">Loading...</div>
       </div>
       <div class="item" v-else-if="errored">Could not find the picture</div>
 
       <div class="item">
-        <p v-for="(word,index) in letter.words" :key="index">{{word}}</p>
+        <p
+          v-for="(word,index) in letter.words"
+          :key="index"
+          :class="{selectedWord: word === selectedWord}"
+        >{{word}}</p>
       </div>
     </div>
   </div>
@@ -38,7 +42,8 @@ export default {
       image: null,
       loading: true,
       errored: false,
-      toggleCase: false
+      toggleCase: false,
+      selectedWord: null
     };
   },
   computed: {
@@ -48,7 +53,7 @@ export default {
   },
   mounted() {
     axios
-      .get(this.letter.img)
+      .get(this.getRandomImageURL(this.letter.words))
       .then(response => {
         this.image = response.config.url;
       })
@@ -57,6 +62,17 @@ export default {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
+  },
+  methods: {
+    getRandomImageURL: function(arr) {
+      const randomIndex = Math.floor(Math.random() * Math.floor(3));
+      const selectedWord = arr[randomIndex];
+      this.selectedWord = selectedWord;
+      console.log("selectedWord: ", selectedWord);
+
+      console.log(`https://source.unsplash.com/150x150/?${arr[randomIndex]}`);
+      return `https://source.unsplash.com/125x125/?${arr[randomIndex]}`;
+    }
   }
 };
 </script>
@@ -77,10 +93,6 @@ export default {
 h1 {
   font-size: 4rem;
 }
-/* h1:hover {
-  text-transform: uppercase;
-  color: tomato;
-} */
 
 .toggleCase {
   color: rgb(185, 28, 125);
@@ -91,7 +103,7 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
   height: 35vh;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  row-gap: 50px;
+  row-gap: 25px;
 }
 .item {
   display: grid;
@@ -100,51 +112,128 @@ h1 {
 }
 
 .item.loading {
-  min-width: 150px;
+  min-width: 125px;
 }
 
 .imageLoaded {
   border-radius: 50%;
   grid-area: 1 / 1;
+  width: 100%;
+}
+img {
+  width: 100% !important;
 }
 
 .placeholder {
   background-color: white;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   grid-area: 1 / 1;
 }
 
-.lds-hourglass {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
+.selectedWord {
+  background-color: rgb(207, 224, 219);
+  border-radius: 10%;
+  padding: 0.35rem;
 }
-.lds-hourglass:after {
-  content: " ";
-  display: block;
+
+.loader {
+  color: #2c3e50;
+  font-size: 50px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
-  width: 0;
-  height: 0;
-  margin: 6px;
-  box-sizing: border-box;
-  border: 26px solid rgb(185, 28, 125);
-  border-color: rgb(185, 28, 125) transparent rgb(185, 28, 125) transparent;
-  animation: lds-hourglass 1.2s infinite;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 }
-@keyframes lds-hourglass {
+@-webkit-keyframes load6 {
   0% {
-    transform: rotate(0);
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
-  50% {
-    transform: rotate(900deg);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
   }
   100% {
-    transform: rotate(1800deg);
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@keyframes load6 {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+@-webkit-keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes round {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 </style>

@@ -37,4 +37,11 @@ export default {
 .header {
   padding: 0 2.5vw;
 }
+@media (max-width: 750px) {
+  .a,
+  .b,
+  .c {
+    font-size: 4rem;
+  }
+}
 </style>
