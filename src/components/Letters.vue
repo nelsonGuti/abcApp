@@ -84,8 +84,7 @@ select {
   }
 
   .letter-wrapper {
-    grid-template-columns: 1fr;
-    margin: 0 8px;
+    margin: 0 24px;
   }
 }
 </style>
