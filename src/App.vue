@@ -32,6 +32,7 @@ body {
 }
 #app {
   font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -54,7 +55,7 @@ body {
     margin-bottom: 25px;
   }
   .lettersMain {
-    margin: 0 5vw;
+    margin: 0;
   }
 }
 </style>

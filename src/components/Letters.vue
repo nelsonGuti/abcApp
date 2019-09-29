@@ -74,13 +74,18 @@ select {
 }
 .letter-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   grid-gap: 25px;
 }
 
 @media (max-width: 750px) {
   select {
     width: 75%;
+  }
+
+  .letter-wrapper {
+    grid-template-columns: 1fr;
+    margin: 0 8px;
   }
 }
 </style>
