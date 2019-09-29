@@ -68,9 +68,6 @@ export default {
       const randomIndex = Math.floor(Math.random() * Math.floor(3));
       const selectedWord = arr[randomIndex];
       this.selectedWord = selectedWord;
-      console.log("selectedWord: ", selectedWord);
-
-      console.log(`https://source.unsplash.com/150x150/?${arr[randomIndex]}`);
       return `https://source.unsplash.com/125x125/?${arr[randomIndex]}`;
     }
   }

@@ -3,166 +3,140 @@
     {
       "id": 1,
       "name": "a",
-      "words": ["ant", "apple", "art"],
+      "words": ["ant", "apple", "alligator"],
       "palabras": ["arbol", "arca", "ala"],
-      "img": "https://source.unsplash.com/150x150/?apple",
       "vocal": true
     },
     {
       "id": 2,
       "name": "b",
-      "words": ["bee", "ball", "bubble"],
-      "palabras": ["bola", "beso", "bote"],
-      "img": "https://source.unsplash.com/150x150/?ball"
+      "words": ["bee", "ball", "baloon"],
+      "palabras": ["bola", "beso", "bote"]
     },
     {
       "id": 3,
       "name": "c",
-      "words": ["cat", "cow", "coconut"],
-      "palabras": ["arbol", "arca", "ala"],
-      "img": "https://source.unsplash.com/150x150/?cow"
+      "words": ["cat", "cow", "carrot"],
+      "palabras": ["arbol", "arca", "ala"]
     },
     {
       "id": 4,
       "name": "d",
-      "words": ["dog", "dice", "duck"],
-      "img": "https://source.unsplash.com/150x150/?dog"
+      "words": ["dog", "dice", "duck"]
     },
     {
       "id": 5,
       "name": "e",
       "words": ["elephant", "egg", "echo"],
-      "img": "https://source.unsplash.com/150x150/?elephant",
       "vocal": true
     },
     {
       "id": 6,
       "name": "f",
-      "words": ["fish", "frog", "fog"],
-      "img": "https://source.unsplash.com/150x150/?frog"
+      "words": ["fish", "frog", "fog"]
     },
     {
       "id": 7,
       "name": "g",
-      "words": ["goat", "grass", "girl"],
-      "img": "https://source.unsplash.com/150x150/?goat"
+      "words": ["goat", "grass", "girl"]
     },
     {
       "id": 8,
       "name": "h",
-      "words": ["hat", "help", "hit"],
-      "img": "https://source.unsplash.com/150x150/?hat"
+      "words": ["hat", "help", "hit"]
     },
     {
       "id": 9,
       "name": "i",
       "words": ["igloo", "ink", "inside"],
-      "img": "https://source.unsplash.com/150x150/?igloo",
       "vocal": true
     },
     {
       "id": 10,
       "name": "j",
-      "words": ["jar", "jelly", "jam"],
-      "img": "https://source.unsplash.com/150x150/?jelly"
+      "words": ["jar", "jelly", "jam"]
     },
     {
       "id": 11,
       "name": "k",
-      "words": ["kangaroo", "koala", "kiwi"],
-      "img": "https://source.unsplash.com/150x150/?koala"
+      "words": ["kangaroo", "koala", "kiwi"]
     },
     {
       "id": 12,
       "name": "l",
-      "words": ["lion", "leg", "long"],
-      "img": "https://source.unsplash.com/150x150/?lion"
+      "words": ["lion", "leg", "long"]
     },
     {
       "id": 13,
       "name": "m",
-      "words": ["monkey", "man", "moon"],
-      "img": "https://source.unsplash.com/150x150/?moon"
+      "words": ["monkey", "man", "moon"]
     },
     {
       "id": 14,
       "name": "n",
-      "words": ["nest", "net", "noise"],
-      "img": "https://source.unsplash.com/150x150/?nest"
+      "words": ["nest", "net", "noise"]
     },
     {
       "id": 15,
       "name": "o",
       "words": ["out", "octupus", "oil"],
-      "img": "https://source.unsplash.com/150x150/?octupus",
       "vocal": true
     },
     {
       "id": 16,
       "name": "p",
-      "words": ["parrot", "potato", "pig"],
-      "img": "https://source.unsplash.com/150x150/?pig"
+      "words": ["parrot", "potato", "pig"]
     },
     {
       "id": 17,
       "name": "q",
-      "words": ["quilt", "quiet", "quack"],
-      "img": "https://source.unsplash.com/150x150/?quilt"
+      "words": ["quilt", "quiet", "quack"]
     },
     {
       "id": 18,
       "name": "r",
-      "words": ["rat", "rain", "rap"],
-      "img": "https://source.unsplash.com/150x150/?rat"
+      "words": ["rat", "rain", "rap"]
     },
     {
       "id": 19,
       "name": "s",
-      "words": ["sun", "soil", "seed"],
-      "img": "https://source.unsplash.com/150x150/?sun"
+      "words": ["sun", "soil", "seed"]
     },
     {
       "id": 20,
       "name": "t",
-      "words": ["tent", "tiger", "tree"],
-      "img": "https://source.unsplash.com/150x150/?tree"
+      "words": ["tent", "tiger", "tree"]
     },
     {
       "id": 21,
       "name": "u",
       "words": ["umbrella", "unicorn", "ukelele"],
-      "img": "https://source.unsplash.com/150x150/?unicorn",
       "vocal": true
     },
     {
       "id": 22,
       "name": "v",
-      "words": ["video", "voice", "violin"],
-      "img": "https://source.unsplash.com/150x150/?violin"
+      "words": ["video", "voice", "violin"]
     },
     {
       "id": 23,
       "name": "w",
-      "words": ["water", "watermelon", "wet"],
-      "img": "https://source.unsplash.com/150x150/?water"
+      "words": ["water", "watermelon", "wet"]
     },
     {
       "id": 24,
       "name": "x",
-      "words": ["x-ray", "xylophone", "x-games"],
-      "img": "https://source.unsplash.com/150x150/?xylophone"
+      "words": ["x-ray", "xylophone", "x-games"]
     },
     {
       "id": 25,
       "name": "y",
-      "words": ["yellow", "yolk", "you"],
-      "img": "https://source.unsplash.com/150x150/?yellow"
+      "words": ["yellow", "yolk", "you"]
     },
     {
       "id": 26,
       "name": "z",
-      "words": ["zoo", "zebra", "zuchini"],
-      "img": "https://source.unsplash.com/150x150/?zebra"
+      "words": ["zoo", "zebra", "zuchini"]
     }
   ]
 }
