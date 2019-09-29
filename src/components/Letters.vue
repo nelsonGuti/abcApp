@@ -61,9 +61,6 @@ export default {
 </script>
 
 <style scoped>
-/* .item {
-  max-width: 650px;
-} */
 select {
   padding: 0.5rem;
   width: 175px;
