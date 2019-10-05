@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="header">
-      <h1>
+      <!-- <h1>
         <span class="a">A</span>
         <span class="b">B</span>
         <span class="c">C</span>
-      </h1>
-      <p class="subheader">App that helps you learn your letters 😉</p>
+      </h1>-->
+      <p class="subheader">App that helps you learn your letters, numbers and shapes 😉</p>
     </div>
   </div>
 </template>
