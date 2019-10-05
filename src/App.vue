@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <Navigation :navIcons="navIcons" @selectionState="setState"></Navigation>
     <Header></Header>
-    <Letters class="lettersMain" :letters="letters"></Letters>
+    <!-- parent : {{selectedState}} -->
+    <Letters v-if="selectedState === 'letters'" class="lettersMain" :letters="letters"></Letters>
     <p class="footer">Made with ❤️ by Paz and Nelson</p>
   </div>
 </template>
@@ -9,18 +11,40 @@
 <script>
 import Header from "./components/Header.vue";
 import Letters from "./components/Letters.vue";
+import Navigation from "./components/Navigation.vue";
 import data from "./json/data.json";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faFont, faListOl, faShapes } from "@fortawesome/free-solid-svg-icons";
 
 export default {
   name: "app",
   components: {
     Header,
-    Letters
+    Letters,
+    Navigation,
+    FontAwesomeIcon
   },
   data() {
     return {
-      letters: data.abc
+      letters: data.abc,
+      navIcons: [
+        [faFont, "letters"],
+        [faListOl, "numbers"],
+        [faShapes, "shapes"]
+      ],
+      selectedState: "letters"
     };
+  },
+  computed: {
+    appIcon() {
+      return "";
+    }
+  },
+  methods: {
+    setState(state) {
+      console.log("event is captured in parent", state);
+      this.selectedState = state;
+    }
   }
 };
 </script>
