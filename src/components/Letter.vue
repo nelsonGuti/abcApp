@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="letter">
+    <div class="letter-grid">
       <div class="item" :class="{ toggleCase: toggleCase }" @click="toggleCase = !toggleCase">
         <h1>{{letter.name}}</h1>
       </div>
@@ -95,7 +95,7 @@ h1 {
   color: rgb(185, 28, 125);
   text-transform: uppercase;
 }
-.letter {
+.letter-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   height: 35vh;

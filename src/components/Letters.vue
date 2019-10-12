@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      selected: "All"
+      selected: "a"
     };
   },
   methods: {

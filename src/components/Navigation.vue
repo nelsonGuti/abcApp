@@ -47,8 +47,6 @@ li {
   padding: 1.5rem 1.5rem 0.5rem 1.5rem;
 }
 li svg {
-  /* color: rgb(22, 22, 121);
-  background-color: rgb(183, 238, 238); */
   color: rgb(2, 63, 5);
   background-color: rgb(179, 212, 187);
   padding: 1.25rem;
