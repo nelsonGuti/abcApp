@@ -1,0 +1,68 @@
+<template>
+  <div>
+    <div class="numbers-block">
+      <select v-model="selected">
+        <option>1 - 9</option>
+        <option v-for="number in numbers" :key="number.id">{{number.id}}</option>
+      </select>
+      <div class="numbers-wrapper">
+        <NumberItem class="item" :number="number" v-for="number in getNumber()" :key="number.id"></NumberItem>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import NumberItem from "./NumberItem.vue";
+export default {
+  name: "Numbers",
+  components: {
+    NumberItem
+  },
+  props: {
+    numbers: {
+      type: Array
+    }
+  },
+  computed: {
+    selectedNumber: function() {
+      return this.numbers.filter(number => number.id === Number(this.selected));
+    }
+  },
+  data() {
+    return {
+      selected: "1"
+    };
+  },
+  methods: {
+    getNumber() {
+      return this.selected === "1 - 9" ? this.numbers : this.selectedNumber;
+    }
+  }
+};
+</script>
+
+<style>
+select {
+  padding: 0.5rem;
+  width: 175px;
+  font-family: "Montserrat", sans-serif;
+  text-align-last: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.numbers-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-gap: 25px;
+}
+
+@media (max-width: 750px) {
+  select {
+    width: 75%;
+  }
+  .numbers-wrapper {
+    margin: 0 24px;
+  }
+}
+</style>

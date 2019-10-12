@@ -138,5 +138,52 @@
       "name": "z",
       "words": ["zoo", "zebra", "zuchini"]
     }
+  ],
+  "numbers": [
+    {
+      "id": 1,
+      "name": "one",
+      "nombre": "uno"
+    },
+    {
+      "id": 2,
+      "name": "two",
+      "nombre": "dos"
+    },
+    {
+      "id": 3,
+      "name": "three",
+      "nombre": "tres"
+    },
+    {
+      "id": 4,
+      "name": "four",
+      "nombre": "cuatro"
+    },
+    {
+      "id": 5,
+      "name": "five",
+      "nombre": "cinco"
+    },
+    {
+      "id": 6,
+      "name": "six",
+      "nombre": "seis"
+    },
+    {
+      "id": 7,
+      "name": "seven",
+      "nombre": "siete"
+    },
+    {
+      "id": 8,
+      "name": "eight",
+      "nombre": "ocho"
+    },
+    {
+      "id": 9,
+      "name": "nine",
+      "nombre": "nueve"
+    }
   ]
 }
