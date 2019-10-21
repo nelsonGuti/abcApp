@@ -1,12 +1,23 @@
 <template>
   <div>
     <div class="numbers-block">
-      <select v-model="selected">
+      <!-- <select v-model="selected">
         <option>1 - 9</option>
         <option v-for="number in numbers" :key="number.id">{{number.id}}</option>
-      </select>
+      </select>-->
+      <!-- {{this.selected}} -->
       <div class="numbers-wrapper">
-        <NumberItem class="item" :number="number" v-for="number in getNumber()" :key="number.id"></NumberItem>
+        <NumberItem
+          @allCirclesClicked="increment"
+          class="item"
+          :number="number"
+          :selected="selected"
+          v-for="number in selectedNumber"
+          :key="number.id"
+        ></NumberItem>
+        <div v-if="selected > numbers.length">
+          <button @click="reset">Retry</button>
+        </div>
       </div>
     </div>
   </div>
@@ -31,12 +42,19 @@ export default {
   },
   data() {
     return {
-      selected: "1"
+      selected: 1
     };
   },
   methods: {
     getNumber() {
       return this.selected === "1 - 9" ? this.numbers : this.selectedNumber;
+    },
+    increment() {
+      this.selected = this.selected + 1;
+      // console.log("this.selected: ", this.selected);
+    },
+    reset() {
+      this.selected = 1;
     }
   }
 };
@@ -55,6 +73,10 @@ select {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   grid-gap: 25px;
+}
+
+.numbers-block {
+  margin-top: 5rem;
 }
 
 @media (max-width: 750px) {

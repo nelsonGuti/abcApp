@@ -3,7 +3,13 @@
     <div class="number-grid">
       <div class="item id">{{number.id}}</div>
       <div class="item circles">
-        <div v-for="(number,index) in currentNumber" :key="index" class="circle"></div>
+        <div class="circleItem" v-for="(num, index) in currentNumber" :key="index">
+          <div
+            class="circle"
+            :class="{clicked: clickedItems.includes(num)}"
+            @click="clickedCircle(num)"
+          ></div>
+        </div>
       </div>
       <div class="item names">
         <div class="number-item-name">{{number.name}}</div>
@@ -16,10 +22,36 @@
 <script>
 export default {
   name: "Number-Item",
-  computed: {
+  data() {
+    return {
+      clickedItems: [],
+      currentNumber: Array.from(Array(this.number.id).keys()),
+      selected: false
+    };
+  },
+  /* computed: {
     currentNumber: function() {
-      // console.log(Array(this.number).fill(1));
-      return Array(this.number.id).fill(1);
+      return Array(this.number.id).fill();
+    }
+  }, */
+  methods: {
+    clickedCircle(num) {
+      // console.log("num", num);
+      if (!this.clickedItems.includes(num)) {
+        this.clickedItems.push(num);
+      }
+      // this.clickedItems.push(num);
+      // console.log("this.clickedItems: ", this.clickedItems);
+      // console.log(this.currentNumber);
+      if (this.clickedItems.length == this.number.id) {
+        // console.log("all circles clicked");
+        setTimeout(() => {
+          this.allCirclesClicked();
+        }, 250);
+      }
+    },
+    allCirclesClicked: function() {
+      this.$emit("allCirclesClicked");
     }
   },
   props: {
@@ -75,9 +107,27 @@ export default {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background-color: #2c3e50;
+  /* background-color: #2c3e50; */
+  background-color: #fff;
+  border: 0.5px solid #2c3e50;
+  /* display: grid;
+  align-self: center;
+  justify-self: center; */
+}
+
+.circleItem {
+  /* height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #2c3e50; */
   display: grid;
   align-self: center;
   justify-self: center;
+}
+
+.clicked {
+  background-color: #2c3e50;
+  /* background-color: #fff;
+  border: 0.5px solid #2c3e50; */
 }
 </style>
