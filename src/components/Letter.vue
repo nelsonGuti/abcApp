@@ -58,7 +58,6 @@ export default {
         this.image = response.config.url;
       })
       .catch(error => {
-        console.log(error);
         this.errored = true;
       })
       .finally(() => (this.loading = false));
