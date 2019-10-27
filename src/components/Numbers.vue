@@ -1,11 +1,6 @@
 <template>
   <div>
     <div class="numbers-block">
-      <!-- <select v-model="selected">
-        <option>1 - 9</option>
-        <option v-for="number in numbers" :key="number.id">{{number.id}}</option>
-      </select>-->
-      <!-- {{this.selected}} -->
       <div class="numbers-wrapper">
         <NumberItem
           @allCirclesClicked="increment"
@@ -16,7 +11,10 @@
           :key="number.id"
         ></NumberItem>
         <div v-if="selected > numbers.length">
-          <button @click="reset">Retry</button>
+          <Fireworks></Fireworks>
+          <button @click="reset">
+            <font-awesome-icon :icon="icon" />
+          </button>
         </div>
       </div>
     </div>
@@ -25,10 +23,13 @@
 
 <script>
 import NumberItem from "./NumberItem.vue";
+import Fireworks from "./Fireworks.vue";
+import { faRedo } from "@fortawesome/free-solid-svg-icons";
 export default {
   name: "Numbers",
   components: {
-    NumberItem
+    NumberItem,
+    Fireworks
   },
   props: {
     numbers: {
@@ -42,16 +43,13 @@ export default {
   },
   data() {
     return {
-      selected: 1
+      selected: 1,
+      icon: faRedo
     };
   },
   methods: {
-    getNumber() {
-      return this.selected === "1 - 9" ? this.numbers : this.selectedNumber;
-    },
     increment() {
       this.selected = this.selected + 1;
-      // console.log("this.selected: ", this.selected);
     },
     reset() {
       this.selected = 1;
@@ -75,8 +73,13 @@ select {
   grid-gap: 25px;
 }
 
-.numbers-block {
-  margin-top: 5rem;
+button {
+  color: rgb(2, 63, 5);
+  background-color: rgb(179, 212, 187);
+  padding: 1.25rem;
+  border-radius: 10%;
+  font-size: 2rem;
+  border: none;
 }
 
 @media (max-width: 750px) {
