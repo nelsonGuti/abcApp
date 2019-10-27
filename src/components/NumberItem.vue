@@ -25,26 +25,16 @@ export default {
   data() {
     return {
       clickedItems: [],
-      currentNumber: Array.from(Array(this.number.id).keys()),
-      selected: false
+      currentNumber: Array.from(Array(this.number.id).keys())
     };
   },
-  /* computed: {
-    currentNumber: function() {
-      return Array(this.number.id).fill();
-    }
-  }, */
   methods: {
     clickedCircle(num) {
-      // console.log("num", num);
       if (!this.clickedItems.includes(num)) {
         this.clickedItems.push(num);
       }
-      // this.clickedItems.push(num);
-      // console.log("this.clickedItems: ", this.clickedItems);
-      // console.log(this.currentNumber);
+
       if (this.clickedItems.length == this.number.id) {
-        // console.log("all circles clicked");
         setTimeout(() => {
           this.allCirclesClicked();
         }, 250);
@@ -73,6 +63,9 @@ export default {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 5%;
   width: 100%;
+
+  background-color: #fff;
+  opacity: 1;
 }
 
 .item {
@@ -104,22 +97,14 @@ export default {
   width: 125px;
 }
 .circle {
-  height: 15px;
-  width: 15px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
-  /* background-color: #2c3e50; */
   background-color: #fff;
   border: 0.5px solid #2c3e50;
-  /* display: grid;
-  align-self: center;
-  justify-self: center; */
 }
 
 .circleItem {
-  /* height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: #2c3e50; */
   display: grid;
   align-self: center;
   justify-self: center;
@@ -127,7 +112,5 @@ export default {
 
 .clicked {
   background-color: #2c3e50;
-  /* background-color: #fff;
-  border: 0.5px solid #2c3e50; */
 }
 </style>

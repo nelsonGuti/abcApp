@@ -7,7 +7,6 @@
         <option>Consonants</option>
         <option v-for="letter in letters" :key="letter.id">{{letter.name}}</option>
       </select>
-      <!-- <p>{{selected}}</p> -->
       <div class="letter-wrapper">
         <Letter class="item" :letter="letter" v-for="letter in selectedValue()" :key="letter.id"></Letter>
       </div>
@@ -67,7 +66,7 @@ select {
   font-family: "Montserrat", sans-serif;
   text-align-last: center;
   font-size: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 .letter-wrapper {
   display: grid;
