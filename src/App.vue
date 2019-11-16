@@ -5,6 +5,7 @@
     <!-- parent : {{selectedState}} -->
     <Letters v-if="selectedState === 'letters'" class="cardsMain" :letters="letters"></Letters>
     <Numbers v-if="selectedState === 'numbers'" class="cardsMain" :numbers="numbers"></Numbers>
+    <CardContainer v-if="selectedState === 'shapes'" class="cardsMain" :shapes="shapes"></CardContainer>
     <p class="footer">Made with ❤️ by Paz and Nelson</p>
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import Header from "./components/Header.vue";
 import Letters from "./components/Letters.vue";
+import CardContainer from "./components/CardContainer.vue";
 import Numbers from "./components/Numbers.vue";
 import Navigation from "./components/Navigation.vue";
 import data from "./json/data.json";
@@ -22,6 +24,7 @@ export default {
   components: {
     Header,
     Letters,
+    CardContainer,
     Numbers,
     Navigation
   },
@@ -29,6 +32,7 @@ export default {
     return {
       letters: data.abc,
       numbers: data.numbers,
+      shapes: data.shapes,
       navIcons: [
         [faFont, "letters"],
         [faListOl, "numbers"],

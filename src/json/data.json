@@ -185,5 +185,49 @@
       "name": "nine",
       "nombre": "nueve"
     }
+  ],
+  "shapes": [
+    {
+      "id": 1,
+      "emoji": "",
+      "name": "Circle",
+      "class": "circleShape",
+      "nombre": "Círculo"
+    },
+    {
+      "id": 2,
+      "emoji": "",
+      "name": "Triangle",
+      "class": "triangleShape",
+      "nombre": "Triángulo"
+    },
+    {
+      "id": 3,
+      "emoji": "",
+      "name": "Square",
+      "nombre": "Cuadrado",
+      "class": "squareShape"
+    },
+    {
+      "id": 4,
+      "emoji": "",
+      "name": "Star",
+      "nombre": "Estrella",
+      "class": "starShape"
+    },
+    {
+      "id": 5,
+      "emoji": "",
+      "name": "Rectangle",
+      "nombre": "Rectángulo",
+      "class": "rectangleShape"
+    },
+    {
+      "id": 6,
+      "emoji": "",
+      "name": "Oval",
+      "nombre": "Óvalo",
+      "class": "ovalShape"
+    }
   ]
 }
